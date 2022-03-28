@@ -1,0 +1,47 @@
+s = "334+2*5"
+
+
+index = 0
+ 
+curr=result=prev = 0
+curr_operation = '+'
+ 
+while index < len(s):
+    curr_char = s[index]
+    
+    print ("curr_char)
+    
+    if curr_char.isdigit():
+        while index < len(s) and s[index].isdigit():
+            curr = curr * 10 + int(s[index])
+            index +=1
+        index -=1
+        
+        print ("Current Value:", curr)
+        print("Result is:",result)
+        print("Current Operation is: ", curr_operation)
+        
+        if curr_operation == "+":
+            result += curr
+            prev = curr
+      
+        elif curr_operation == "-":
+            result -= curr
+            prev = -curr
+     
+        elif curr_operation == "*":
+            result -= prev
+            result += curr * prev
+            prev = curr * prev
+      
+        else:
+            result -= prev
+            result += (prev//curr)
+            prev = (prev//curr)
+      
+        curr = 0
+    elif curr_char != " ":
+        curr_operation = curr_char
+    
+    index += 1
+print ("Final Result is:", result)
