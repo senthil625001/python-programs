@@ -1,0 +1,12 @@
+amount = 5
+coins = [1,2,5]
+dp = [0]* (amount +1)
+dp[0] = 1
+
+for coin in coins:
+    print ("Coin is:", coin)
+    for x in range(coin, amount+1):
+        dp[x] += dp[x - coin]
+        print (dp)
+        
+print (dp[amount])
