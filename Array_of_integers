@@ -1,0 +1,31 @@
+a = [2, -2, 5, 3]
+b = [1, 5, -1, 1]
+n = len(a)
+c = [0] *n
+for i in range(n):
+    c[i] = a[i] + b[i]
+
+print (c)
+
+freqCount = dict()
+
+for i in range(n):
+    if c[i] in freqCount.keys():
+        freqCount[c[i]] += 1
+    else:
+        freqCount[c[i]] = 1
+
+print (freqCount)
+
+
+NoOfPairs = 0
+  
+for x in freqCount:
+    y = freqCount[x]
+    print (y)
+
+    # Add possible valid pairs
+    NoOfPairs = (NoOfPairs + y * (y - 1) // 2)
+    print("Number of Pairs", NoOfPairs)
+NoOfPairs+=n
+print (NoOfPairs)
