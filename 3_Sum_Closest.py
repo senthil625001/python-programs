@@ -11,7 +11,7 @@ def threeSumClosest(self, nums, target):
     :type target: int
     :rtype: int
     """
-    nums = sorted(nums)
+    nums = sorted(nums) # sort the numbers [-4,-1,1,2]
     curr = nums[0] + nums[1] + nums[len(nums)-1]
     for i in range(len(nums)-2):
         if i > 0 and nums[i] == nums[i-1]:
