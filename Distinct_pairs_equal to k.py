@@ -1,8 +1,9 @@
 arr = [8, 10, 16, 4, 0, 20]
-n = len(arr)
 k = 4
+
+
 count =0
- 
+n = len(arr) 
 # Sort array elements
 arr.sort()
 
