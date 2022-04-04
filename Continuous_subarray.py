@@ -16,14 +16,14 @@ remainder = {0:-1}
 
 total = 0
 
-for i, v in enumerate (nums):
+for index, value in enumerate (nums):
     if k!=0:
-        total = (total + v)%k
+        total = (total + value)%k
     else:
-        total+=n
+        total+=nums
     
     if total not in remainder:
-        remainder[total] = i
+        remainder[total] = index
     elif i - remainder[total] >1:
         print(True)
 print(False)
