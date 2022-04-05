@@ -1,27 +1,23 @@
 nums1 = [2,3,5,6,0,0,0]
 nums2 = [1,4,5]
 
-last = len(nums1)-1
-m = len(nums1) - len(nums)
-n = len(nums2)
-
-print (last)
-print(m)
-print(n)
-
-while m > 0 and n>0:
-    if nums1[m-1] > nums2[n-1]:
-        nums1[last] = nums1[m-1]
-        m-=1
-    else:
-        nums1[last] = nums2[n-1]
-        n-=1
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        
+        # Set p1 and p2 to point to the end of their respective arrays.
+        p1 = len(nums1) - len(nums2) #7-3 = 4
+        p2 = len(nums2) - 1 # 3-1=2
     
-    last-=1
-    
-while n >0:
-    nums1[last] = nums2[n-1]
-    n, last = n-1, last-1
-
-print (nums1)
-print (nums2)
+        # And move p backwards through the array, each time writing
+        # the smallest value pointed at by p1 or p2.
+        for p in range(p1+p2, -1, -1):
+            if p2 < 0:
+                break
+            if p1 >= 0 and nums1[p1] > nums2[p2]:
+                nums1[p] = nums1[p1]
+                p1 -= 1
+            else:
+                nums1[p] = nums2[p2]
+                p2 -= 1
