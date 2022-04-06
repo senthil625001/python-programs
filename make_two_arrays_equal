@@ -1,0 +1,18 @@
+from collections import defaultdict
+
+target = [3,7,9]
+arr = [3,7,11]
+
+t_count = defaultdict(int)
+for t in target:
+    t_count[t] += 1
+
+print(t_count) #{9: 1, 3: 1, 7: 1}
+
+
+for a in arr:
+    if a in t_count and t_count[a] >0:
+        t_count[a] -=1
+    else:
+        print(False)
+print(True)
